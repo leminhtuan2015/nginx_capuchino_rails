@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414075109) do
+ActiveRecord::Schema.define(version: 20150416061754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,20 @@ ActiveRecord::Schema.define(version: 20150414075109) do
 
   add_index "feedback", ["article_id"], name: "index_feedback_on_article_id", using: :btree
   add_index "feedback", ["text_filter_id"], name: "index_feedback_on_text_filter_id", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "postal_code"
+    t.integer  "prefectural_id"
+    t.string   "city"
+    t.string   "street"
+    t.string   "building"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "locations", ["prefectural_id"], name: "index_locations_on_prefectural_id", using: :btree
 
   create_table "mail_templates", force: true do |t|
     t.string   "name"
