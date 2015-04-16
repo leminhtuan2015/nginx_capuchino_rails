@@ -164,6 +164,8 @@ en:
     pagination:
       truncate: "Truncate"
       next: "Next"
+      previous: "Previous"
+      first: "First"
       last: "Last"
   layouts:
     default:
@@ -207,6 +209,7 @@ en:
         subject: "Suject"
         text: "Text"
         save: "Save"
+        mark: " *"
       mail_template:
         sure: "Are you sure?"
       edit:

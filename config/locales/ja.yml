@@ -163,8 +163,10 @@ ja:
   views:
     pagination:
       truncate: "Truncate"
-      next: "Next"
-      last: "Last"
+      next: "次へ"
+      previous: "前へ"
+      first: "先頭"
+      last: "最後"
   layouts:
     default:
       html:
@@ -236,7 +238,7 @@ ja:
     mail_templates:
       index:
         mail_templates: "メールマスタ"
-        new_mail_template: "メールテンプレートを新規作成しました。"
+        new_mail_template: "メールテンプレート新規作成"
         sure: "このメールテンプレートを削除していますか。"
         name: "管理用名称"
         subject: "件名"
@@ -245,12 +247,13 @@ ja:
         subject: "件名"
         text: "本文"
         save: "保存"
+        mark: " *"
       mail_template:
         sure: "このメールテンプレートを削除していますか。"
       edit:
         edit_mail_template: "メールテンプレート編集"
       new:
-        new_mail_template: "メールテンプレートを新規作成しました。"
+        new_mail_template: "メールテンプレート新規作成"
       show:
         show_mail_template: "メールテンプレート表示"
         delete_mail_template: "メールテンプレート削除"

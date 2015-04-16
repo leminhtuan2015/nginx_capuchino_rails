@@ -4,7 +4,8 @@ class Admin::MailTemplatesController < Admin::BaseController
   before_filter :find_mail_templates, except: [:index, :new, :create]
 
   def index
-    @mail_templates = MailTemplate.page(params[:page]).per this_blog.limit_article_display
+    @mail_templates = MailTemplate.recent.page(params[:page]).per(
+      this_blog.limit_template_display)
   end
 
   def new
@@ -15,7 +16,7 @@ class Admin::MailTemplatesController < Admin::BaseController
     @mail_template = MailTemplate.new mail_template_params
     if @mail_template.save
       flash[:success] = I18n.t "notice.mail_template.successfully_created"
-      redirect_to admin_mail_template_path @mail_template
+      redirect_to admin_mail_templates_path
     else
       flash[:error] = I18n.t "notice.mail_template.create_failed"
       render :new
@@ -31,7 +32,7 @@ class Admin::MailTemplatesController < Admin::BaseController
   def update
     if @mail_template.update_attributes mail_template_params
       flash[:success] = I18n.t "notice.mail_template.successfully_updated"
-      redirect_to admin_mail_template_path @mail_template
+      redirect_to admin_mail_templates_path
     else
       flash[:error] = I18n.t "notice.mail_template.update_failed"
       render :edit
@@ -40,7 +41,7 @@ class Admin::MailTemplatesController < Admin::BaseController
 
   def destroy
     if @mail_template.destroy
-      flash[:notice] = I18n.t "notice.mail_template.successfully_destroy"
+      flash[:notice] = I18n.t "notice.mail_template.successfully_destroyed"
     else
       flash[:error] = I18n.t "notice.mail_template.destroy_false"
     end

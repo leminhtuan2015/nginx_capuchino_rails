@@ -26,7 +26,7 @@ describe Admin::MailTemplatesController do
     end
     it do
       post :create, mail_template: mail_template_params
-      expect(response).to redirect_to admin_mail_template_path assigns[:mail_template]
+      expect(response).to redirect_to admin_mail_templates_path
     end
     context "validate is failure" do
       before do
@@ -62,7 +62,7 @@ describe Admin::MailTemplatesController do
     let(:new_subject) {"new subject"}
     let(:mail_template) {FactoryGirl.create :mail_template}
     before {post :update, id: mail_template.id, mail_template: {subject: new_subject}}
-    it {expect(response).to redirect_to admin_mail_template_path mail_template}
+    it {expect(response).to redirect_to admin_mail_templates_path}
     it {expect(mail_template.reload.subject).to eq new_subject}
     context "update failed" do
       before {MailTemplate.any_instance.stub(:update_attributes).and_return false}
