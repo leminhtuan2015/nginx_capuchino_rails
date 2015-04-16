@@ -5,25 +5,30 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_login">
         <%= t "admin.customer.company" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :company, class: "form-control" %>
+        <label for="setting_allow_signup">
+          <%= f.select :company_id, options_from_collection_for_select(Company.all.collect, "id", "name"), {prompt: "Select"}, class: "form-control", required: true %>
+        <label for="setting_allow_signup">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="customer_password_">
         <%= t "admin.content.form.password" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.password_field :password, class: "form-control"  %>
+        <%= f.password_field :password, required: true, class: "form-control"  %>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password_confirmation">
         <%= t "admin.customer.password_confirmation" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
       </div>
     </div>
   </fieldset>
@@ -33,17 +38,19 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.familyname" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :family_name, class: "form-control" %>
+        <%= f.text_field :family_name, required: true, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.firstname" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :first_name, class: "form-control" %>
+        <%= f.text_field :first_name, required: true, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
@@ -57,33 +64,39 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.postal_code" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :postal_code, class: "form-control" %>
+        <%= f.text_field :postal_code, required: true, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.perfectural" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.select :prefectural_id, options_from_collection_for_select(Prefectural.all.collect, "id", "name"), class: "form-control" %>
+        <label for="setting_allow_signup">
+          <%= f.select :prefectural_id, options_from_collection_for_select(Prefectural.all.collect, "id", "name"), {prompt: "Select"}, class: "form-control", required: true %>
+        </label>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.city" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :city, class: "form-control" %>
+        <%= f.text_field :city, required: true, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="user_password">
         <%= t "admin.customer.street" %>
+        <%= t "admin.customer.mark" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :street, class: "form-control" %>
+        <%= f.text_field :street, required: true, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
@@ -115,7 +128,9 @@
         <%= t "admin.customer.sex" %>
       </label>
       <div class="col-sm-5">
-        <%= f.text_field :sex, class: "form-control" %>
+        <label for="setting_allow_signup">
+          <%= f.select :sex, options_for_select(Customer.sexes.keys.to_a), {}, class: "form-control" %>
+        </label>
       </div>
     </div>  
   </fieldset>

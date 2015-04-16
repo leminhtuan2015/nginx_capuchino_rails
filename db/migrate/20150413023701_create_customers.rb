@@ -1,7 +1,6 @@
 class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|
-      t.string :company
       t.string :family_name
       t.string :first_name
       t.string :tel
@@ -16,9 +15,12 @@ class CreateCustomers < ActiveRecord::Migration
       t.integer :sex
       t.boolean :mailmagazine_accepted
       t.string :facebook_id
+      t.integer :company_id
 
       t.timestamps
     end
     add_index :customers, :prefectural_id
+    add_index :customers, :company_id
+  end
   end
 end
