@@ -1,7 +1,7 @@
 class Admin::CustomersController < Admin::BaseController
   include Admin::BaseHelper
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per this_blog.limit_customer_display
   end
 
   def new

@@ -226,6 +226,12 @@ ja:
       title: "タイトル"
       permalink: "パーマリンク"
       author: "作成者"
+    company:
+      no_find_company: "企業が見つかりませんでした。"
+      confirm_del_company: "企業削除確認"
+      manage_companies: "企業管理"
+      new_company: "企業新規作成"
+      name: "会社名"
     base:
       restart_application: "For security reasons, you should restart your Publify application. Enjoy your blogging experience."
       cant_generate_secret: "Error: can't generate secret token. Security is at risk. Please, change %{checker_file} content"

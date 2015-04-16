@@ -1,0 +1,19 @@
+<% if @companies.nil? %>
+  <tr>
+    <td colspan="5">
+      <%= t "admin.company.no_find_company" %>
+    </td>
+  </tr>
+<% end %>
+
+<% @companies.each do |company| %>
+  <tr>
+    <td>
+      <%= link_to company.name, admin_company_path(company) %>
+      <br />
+      <%= button_to_edit company %>
+      <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-trash"),
+        admin_company_path_path(company),
+        {class: "btn btn-danger btn-xs btn-action", method: :delete, data: {confirm: t("admin.company.confirm_del_company")}} %>
+  </tr>
+<% end %>

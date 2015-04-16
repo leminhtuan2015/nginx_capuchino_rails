@@ -1,0 +1,16 @@
+<% content_for :page_heading do %>
+  <h2>
+    <i class="glyphicon glyphicon-large glyphicon-folder-open"></i>
+    <%= t "admin.company.manage_companies" %>
+    <%= link_to t("admin.company.new_company"), new_admin_company_path, id: "dialog-link", class: "btn btn-info pull-right" %>
+  </h2>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr class="noborder">
+      <th><%= t "admin.company.name" %></th>
+    </tr>
+  </thead>
+  <%= render "companies" %>
+</table>
