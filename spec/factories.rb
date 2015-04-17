@@ -335,4 +335,8 @@ http://alsoping.example.com/rpc/ping"
     subject "subject"
     text "text"
   end
+
+  factory :company do
+    name "company_name"
+  end
 end

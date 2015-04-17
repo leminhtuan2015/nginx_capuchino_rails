@@ -61,6 +61,8 @@ class Blog < ActiveRecord::Base
   setting :image_avatar_size,          :integer, 48
   setting :image_thumb_size,           :integer, 125
   setting :image_medium_size,          :integer, 600
+  setting :limit_customer_display,     :integer, 10
+  setting :limit_company_display,      :integer, 10
 
   # SEO
   setting :meta_description,           :string, ''
