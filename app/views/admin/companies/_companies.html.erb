@@ -13,7 +13,8 @@
       <br />
       <%= button_to_edit company %>
       <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-trash"),
-        admin_company_path_path(company),
+        admin_company_path(company),
         {class: "btn btn-danger btn-xs btn-action", method: :delete, data: {confirm: t("admin.company.confirm_del_company")}} %>
+    </td>
   </tr>
 <% end %>
