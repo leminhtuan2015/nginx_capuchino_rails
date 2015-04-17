@@ -14,3 +14,5 @@
   </thead>
   <%= render "companies" %>
 </table>
+
+<%= display_pagination @companies, 3, t("view.pagination.first"), t("view.pagination.last") %>

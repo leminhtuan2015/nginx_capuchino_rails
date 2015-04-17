@@ -1,0 +1,23 @@
+<%= form_for [:admin, company] do |f| %>
+  <%= error_messages_for "company" %>
+  <div class="form-group">
+    <label class="control-label col-sm-2">
+      <%= t "admin.company.name" %>
+      <%= t "admin.company.mark" %>
+    </label>
+    <div class="col-sm-5">
+      <%= f.text_field :name, required: true, class: "form-control" %>
+    </div>
+  </div>
+
+  <br />
+  <% if(current_page?(action: "new") || current_page?(action: "edit")) %>
+    <div class="form-actions">
+      <hr />
+      <%= link_to t "admin.company.cancel", action: "index" %>
+      <%= "or" %>
+      <%= f.submit t("admin.company.save"), class: "btn btn-success" %>
+    </div>
+    <hr />
+  <% end %>
+<% end %>

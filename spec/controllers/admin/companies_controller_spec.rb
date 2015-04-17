@@ -13,4 +13,23 @@ describe Admin::CompaniesController do
     it {expect(response.status).to eq 200}
     it {expect(assigns :companies).to eq [company]}
   end
+
+  describe "POST create" do
+    let(:company_params) {{company: "company_name"}}
+    context "when the company saves successfully" do
+      it do
+        expect{post :create, company: company_params}.to change(Company, :count).by 1
+      end
+    end
+
+    context "when the company saves failure" do
+      before do
+        Company.stub(:new).and_return company
+        Company.stub(:save).and_return false
+      end
+      it do
+        expect{post :create, company: company_params}.not_to change(Company, :count)
+      end
+    end
+  end
 end
