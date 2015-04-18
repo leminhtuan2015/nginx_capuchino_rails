@@ -32,4 +32,24 @@ describe Admin::CompaniesController do
       end
     end
   end
+
+  describe "POST update" do
+    let(:company) {FactoryGirl.create :company}
+    context "when the company update successfully" do
+      before {post :update, id: company.id, company: {name: "New_name"}}
+      
+      it {expect(response).to redirect_to admin_companies_path}
+      it {expect(flash[:success]).to eq I18n.t("admin.company.update_company_success")}
+      it {expect(company.reload.name).to eq "New_name"}
+    end
+
+    context "when the company update failure" do
+      let(:invalid_company_params) {{name: nil}}
+      before do
+        Company.stub(:update_attributes).and_return false
+        post :update, id: company.id, company: invalid_company_params
+      end
+      it {expect(response).should render_template :edit}
+    end
+  end
 end
