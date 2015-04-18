@@ -52,4 +52,18 @@ describe Admin::CompaniesController do
       it {expect(response).should render_template :edit}
     end
   end
+
+  describe "DELETE Destory" do
+    before {company = FactoryGirl.create :company}
+    it do
+      expect{delete :destroy, id: company.id}.to change(Company, :count).by -1
+    end
+  end
+
+  describe "GET show" do
+    let(:company) {FactoryGirl.create :company}
+    before {get :show, id: company.id}
+    it {expect(response).to render_template :show}
+    it {expect(assigns[:company]).to eq company}
+  end
 end

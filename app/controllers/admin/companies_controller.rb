@@ -33,6 +33,19 @@ class Admin::CompaniesController < Admin::BaseController
     end
   end
 
+  def show
+    @company = Company.find params[:id]
+  end
+
+  def destroy
+    if Company.find(params[:id]).destroy
+      flash[:success] = t "admin.company.destroy_company_success"
+    else
+      flash[:danger] = t "admin.company.destroy_company_fail"
+    end
+    redirect_to admin_companies_path
+  end
+
   private
   def company_params
     params.require(:company).permit :name
