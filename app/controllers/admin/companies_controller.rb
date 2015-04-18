@@ -18,6 +18,21 @@ class Admin::CompaniesController < Admin::BaseController
     end
   end
 
+  def edit
+    @company = Company.find params[:id]
+  end
+
+  def update
+    @company = Company.find params[:id]
+    if @company.update_attributes company_params
+      flash[:success] = t "admin.company.update_company_success"
+      redirect_to admin_companies_path
+    else
+      flash[:danger] = t "admin.company.update_company_fail"
+      render :edit
+    end
+  end
+
   private
   def company_params
     params.require(:company).permit :name
