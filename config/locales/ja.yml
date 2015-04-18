@@ -240,6 +240,8 @@ ja:
       create_company_success: "企業を作成成功しました。"
       create_company_fail: "企業を作成失敗しました。"
       mark: "*"
+      male: "男性"
+      female: "女性"
     base:
       restart_application: "For security reasons, you should restart your Publify application. Enjoy your blogging experience."
       cant_generate_secret: "Error: can't generate secret token. Security is at risk. Please, change %{checker_file} content"

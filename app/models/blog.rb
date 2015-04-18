@@ -28,7 +28,7 @@ class Blog < ActiveRecord::Base
   setting :blog_subtitle,              :string, ''
   setting :geourl_location,            :string, ''
   setting :canonical_server_url,       :string, ''  # Deprecated
-  setting :lang,                       :string, "ja"
+  setting :lang,                       :string, "en"
   setting :title_prefix,               :integer, 0 # Deprecated but needed for a migration
 
   # Spam

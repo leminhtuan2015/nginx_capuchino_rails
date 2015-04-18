@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20150416061754) do
   add_index "contents", ["text_filter_id"], name: "index_contents_on_text_filter_id", using: :btree
 
   create_table "customers", force: true do |t|
-    t.string   "company"
+    t.integer  "company_id"
     t.string   "family_name"
     t.string   "first_name"
     t.string   "tel"
