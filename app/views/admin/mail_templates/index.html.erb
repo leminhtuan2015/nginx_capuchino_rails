@@ -23,6 +23,6 @@
       </thead>
       <%= render @mail_templates %>
     <%- end %>
-    <%= display_pagination @mail_templates, 3, "first", "last" %>
+    <%= display_pagination @mail_templates, 3, t("views.pagination.first"), t("views.pagination.last") %>
   </table>
 </div>
