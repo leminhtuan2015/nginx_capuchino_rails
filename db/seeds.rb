@@ -30,12 +30,13 @@ TextFilter.create(name: 'textile', description: 'Textile',
 admin = Profile.create(label: 'admin', nicename: 'Publify administrator',
   modules: [:dashboard, :articles, :notes, :mail_templates, :pages, :feedback, 
     :media, :themes, :sidebar, :profile, :users, :settings, :seo, :customers, 
-    :companies, :locations])
+    :companies, :locations, :events])
 
 publisher = Profile.create(label: 'publisher', nicename: 'Blog publisher',
-                           modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :profile])
+  modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :profile])
+
 contributor = Profile.create(label: 'contributor', nicename: 'Contributor',
-                             modules: [:dashboard, :profile ])
+  modules: [:dashboard, :profile ])
 
 Dir.mkdir("#{::Rails.root.to_s}/public/files") unless File.directory?("#{::Rails.root.to_s}/public/files")
 

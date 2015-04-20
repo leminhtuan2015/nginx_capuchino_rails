@@ -101,4 +101,8 @@ AccessControl.map require: [ :admin, :publisher, :contributor ]  do |map|
   map.project_module :companies, nil do |project|
     project.menu "Company", {controller: "admin/companies", action: "index"}
   end
+
+  map.project_module :events, nil do |project|
+    project.menu "Event", {controller: "admin/events", action: "index"}
+  end
 end
