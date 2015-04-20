@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416061754) do
+ActiveRecord::Schema.define(version: 20150420011057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20150416061754) do
   end
 
   add_index "customers", ["prefectural_id"], name: "index_customers_on_prefectural_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.integer  "location_id"
+    t.datetime "date_time"
+    t.integer  "event_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feedback", force: true do |t|
     t.string   "type"
