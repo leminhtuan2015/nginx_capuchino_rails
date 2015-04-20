@@ -1,0 +1,20 @@
+<% if @events.nil? %>
+  <tr>
+    <td colspan="5">
+      <%= t "admin.event.no_find_event" %>
+    </td>
+  </tr>
+<% end %>
+
+<% @events.each do |event| %>
+  <tr>
+    <td>
+      <%= link_to event.title, admin_event_path(event) %>
+      <br />
+      <%= button_to_edit event %>
+      <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-trash"),
+        admin_event_path(event),
+        {class: "btn btn-danger btn-xs btn-action", method: :delete, data: {confirm: t("admin.event.confirm_del_event")}} %>
+    </td>
+  </tr>
+<% end %>

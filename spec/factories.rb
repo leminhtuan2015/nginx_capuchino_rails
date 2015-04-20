@@ -344,4 +344,8 @@ http://alsoping.example.com/rpc/ping"
     latitude "0"
     longitude "0"
   end
+
+  factory :event do
+    title "event_title"
+  end
 end

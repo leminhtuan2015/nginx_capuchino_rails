@@ -65,6 +65,7 @@ class Blog < ActiveRecord::Base
   setting :limit_customer_display,     :integer, 10
   setting :limit_company_display,      :integer, 10
   setting :limit_location_display,     :integer, 10
+  setting :limit_event_display,        :integer, 10
 
   # SEO
   setting :meta_description,           :string, ''

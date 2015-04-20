@@ -1,0 +1,18 @@
+<% content_for :page_heading do %>
+  <h2>
+    <i class="glyphicon glyphicon-large glyphicon-folder-open"></i>
+    <%= t "admin.event.manage_events" %>
+    <%= link_to t("admin.event.new_event"), new_admin_event_path, id: "dialog-link", class: "btn btn-info pull-right" %>
+  </h2>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr class="noborder">
+      <th><%= t "admin.event.title" %></th>
+    </tr>
+  </thead>
+  <%= render "events" %>
+</table>
+
+<%= display_pagination @events, 3, t("view.pagination.first"), t("view.pagination.last") %>

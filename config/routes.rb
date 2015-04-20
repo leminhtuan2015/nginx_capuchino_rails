@@ -100,6 +100,7 @@ Rails.application.routes.draw do
     resources :customers
     resources :companies
     resources :locations
+    resources :events
   end
 
   # Work around the Bad URI bug
