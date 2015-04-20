@@ -33,6 +33,12 @@ gem "non-stupid-digest-assets"
 gem "actionpack-page_caching", "~> 1.0.2"
 gem "rails-observers", "~> 0.1.2"
 
+gem "capistrano"
+gem 'capistrano-bundler'
+gem 'rvm-capistrano'
+gem 'capistrano-rails'
+gem "unicorn"
+
 group :assets do
   gem "sass-rails", " ~> 4.0.3"
   gem "coffee-rails", " ~> 4.0.1"
