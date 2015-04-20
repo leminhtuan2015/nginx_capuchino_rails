@@ -339,4 +339,9 @@ http://alsoping.example.com/rpc/ping"
   factory :company do
     name "company_name"
   end
+
+  factory :location do
+    latitude "0"
+    longitude "0"
+  end
 end

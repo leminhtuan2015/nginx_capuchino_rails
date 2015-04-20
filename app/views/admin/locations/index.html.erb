@@ -1,0 +1,32 @@
+<% content_for :page_heading do %>
+  <h2>
+    <i class="glyphicon glyphicon-large glyphicon-th-list"></i>
+    <%= t ".locations" %>
+    <%= link_to t(".new_location"), {controller: :locations, action: :new}, class: "btn btn-info pull-right" %>
+  </h2>
+<% end %>
+
+<div class="col-md-12">
+  <table class="table table-striped">
+    <% if @locations.empty? %>
+      <tr>
+      <td colspan="3">
+        <%= t ".no_locations" %>
+      </td>
+    </tr>
+    <% else %>
+      <thead>
+        <tr>
+          <th><%= t ".id" %></th>
+          <th><%= t ".latitude" %></th>
+          <th><%= t ".longitude" %></th>
+          <th><%= t ".city" %></th>
+          <th><%= t ".street" %></th>
+          <th><%= t ".building" %></th>
+        </tr>
+      </thead>
+      <%= render @locations %>
+    <% end %>
+    <%= display_pagination @locations, 3, t("views.pagination.first"), t("views.pagination.last") %>
+  </table>
+</div>

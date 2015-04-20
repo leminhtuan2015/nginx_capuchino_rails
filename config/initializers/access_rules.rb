@@ -83,6 +83,10 @@ AccessControl.map require: [ :admin, :publisher, :contributor ]  do |map|
     project.menu "Mail templates", {controller: "admin/mail_templates", action: "index"}
   end
 
+  map.project_module :locations, nil do |project|
+    project.menu "Locations", {controller: "admin/locations", action: "index"}
+  end
+
   map.project_module :seo, nil do |project|
     project.menu    "SEO",  { controller: "admin/seo", action: "index" }
     project.submenu "Global SEO settings",  { controller: "admin/seo", action: "index" }    
